@@ -1,6 +1,6 @@
 function updateFlatmates() {
     const css = `
-        #nav-myaccount {
+        header > nav, #nav-myaccount {
             display: none;
         }
     `;

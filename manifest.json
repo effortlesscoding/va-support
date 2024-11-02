@@ -1,21 +1,36 @@
 {
   "manifest_version": 2,
-  "name": "Borderify",
-  "version": "1.0",
-
-  "description": "Adds a red border to all webpages matching mozilla.org.",
-
+  "name": "Firefox va",
+  "description": "-------",
+  "version": "2.0.126.1",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "vavavava@findrentalhome",
+      "strict_min_version": "121.0"
+    }
+  },
+  "default_locale": "en_US",
   "icons": {
     "128": "icons/border-128.png"
   },
-
   "content_scripts": [
     {
       "matches": [
         "*://*.flatmates.com.au/*",
-        "*://*.facebook.com/*"
+        "*://flatmates.com.au/*"
       ],
-      "js": ["contentScript.js"]
+      "js": [
+        "flatmates.js"
+      ],
+      "run_at": "document_start"
     }
+  ],
+  "permissions": [
+    "cookies",
+    "storage",
+    "*://*.flatmates.com.au/*"
+  ],
+  "web_accessible_resources": [
+    "resources/*"
   ]
 }
