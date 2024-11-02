@@ -1,15 +1,24 @@
-function updateFlatmates() {
-    const css = `
-        header > nav, #nav-myaccount {
-            display: none;
+(() => {
+    let ready = false;
+    function updateFlatmates() {
+        if (ready) {
+            return;
         }
-    `;
-    const style = document.createElement('style');
-    const head = document.head || document.getElementsByTagName('head')[0];
-    style.type = 'text/css';
-    style.appendChild(document.createTextNode(css));
-    head.appendChild(style);
-
-    document.querySelector('#nav-myaccount').remove();
-}
-updateFlatmates();
+        if (document.readyState === 'interactive') {
+            const css = `
+                header > nav, #nav-myaccount {
+                    display: none !important;
+                }
+            `;
+            const style = document.createElement('style');
+            const head = document.body;
+            style.type = 'text/css';
+            style.setAttribute('id', 'firefox-va-styles');
+            style.appendChild(document.createTextNode(css));
+            head.appendChild(style);
+            ready = true;
+        }
+    }
+    document.addEventListener('readystatechange', () => updateFlatmates());
+})();
+console.log('START!!!');
