@@ -23,6 +23,26 @@
         "flatmates.js"
       ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://*.facebook.com/*",
+        "*://facebook.com/*"
+      ],
+      "js": [
+        "facebook.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://*.gumtree.com.au/*",
+        "*://gumtree.com.au/*"
+      ],
+      "js": [
+        "gumtree.js"
+      ],
+      "run_at": "document_start"
     }
   ],
   "permissions": [

@@ -6,7 +6,7 @@
         }
         if (document.readyState === 'interactive') {
             const css = `
-                header > nav, #nav-myaccount {
+                [role="navigation"] {
                     display: none !important;
                 }
             `;
@@ -20,4 +20,7 @@
         }
     }
     document.addEventListener('readystatechange', () => updateFlatmates());
+    if (document.location.href.includes('facebook.com/settings')) {
+        document.location.href = 'https://www.facebook.com/messages';
+    }
 })();
